@@ -169,11 +169,43 @@ To avoid plagiarism, make sure that in addition to \cite{PL} you also cite all t
 This section will contain your solutions to homework. 
 
 \subsection{Week 1}
+ Assignment 1: GCD. The program figures out the Greatest Common Divisor for any given two numbers using Euclid’s algorithm. 
 \begin{enumerate}
-\item Assignment 1: Functional Programming. A calculator in Haskell.
- 
-\item For every week, you will have a subsection that contains your answers \begin{enumerate}
 
+\item Firstly you want to put the program into your IDE and run g++ -o assignment1 assignment.cpp
+\item then type in ./assignment1.cpp
+\item Once you run the program you type in the first number then you hit enter then you type in the second number and hit enter. It will then show you the GCD of the two numbers.
+    \end{enumerate}
+      I chose to use c++ because I am familiar with the language and it was easier for me to write the program in it. This assignment was mainly for us to get used to using LaTeX
+\begin{lstlisting}
+#include <iostream>
+using namespace std;
+int gcd(int n, int m) {
+   if (m == 0)
+   {
+       return n;
+   }
+  
+   else if(n>m)
+   {
+      gcd(m,n-m);
+   }
+   else if(n<m)
+   {
+      gcd(n,m-n);
+   }
+   return gcd(m, n % m);
+}
+int main() {
+    int n,m;
+    cout<<"type the number for the first argument of the GCD, then hit enter"<<'\n';
+    cin>>n;
+    cout<<"type the number for the first argument of the GCD,then hit enter"<<'\n';
+    cin>>m;
+   cout<<"GCD of "<< n <<" and "<< m <<" is "<< gcd(n, m);
+   return 0;
+}
+\end{lstlisting}
 \subsection{Week 2}
 
 \ldots

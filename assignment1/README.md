@@ -1,7 +1,7 @@
 # CPSC380_Assignment1
 
 1. IDENTIFYING INFORMATION
-* Full Name: Michael Masakayan
+* Full Name: Michael Masakayan 
 * Student ID: 2382678
 * Chapman Email: masakayan@chapman.edu
 * Course Number and Section: CPSC 354-Programming Languages

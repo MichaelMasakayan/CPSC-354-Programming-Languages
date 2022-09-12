@@ -28,7 +28,7 @@ revert xs = rev [] xs where
   rev :: [a] -> [a] -> [a] 
   rev acc    []  =       acc
   rev acc (x:xs) = rev (x:acc) xs
---compares the values of the lists 
+--compares the values of the lists
 less_equal:: Ord a=> [a] -> [a] -> Bool
 less_equal  [][] = True
 less_equal [x][b] = (x>=b)
@@ -37,7 +37,13 @@ less_equal [x][b] = (x>=b)
 
 
 main::IO ()
-main = print(append [1,2] [3,4,5])
+main =
+   -- print(select_evens ["e","f","g","h","i"])
+    -- print(select_odds ["e","f","g","h","i"])
+
+-- print(select_odds ["a","b","c","d","e"])
+-- print (revert [1,2,3]) 
+     print(append [1,2] [3,4,5])
 -- print(less_equal [][])
 -- print(select_odds ["a","b","c","d","e"])
 -- print (revert [1,2,3])

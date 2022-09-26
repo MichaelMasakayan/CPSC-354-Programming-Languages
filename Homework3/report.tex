@@ -1,0 +1,298 @@
+
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fullpage}
+\usepackage[usenames]{color}
+\usepackage{hyperref}
+  \hypersetup{
+    colorlinks = true,
+    urlcolor = blue,       % color of external links using \href
+    linkcolor= blue,       % color of internal links 
+    citecolor= blue,       % color of links to bibliography
+    filecolor= blue,        % color of file links
+    }
+    
+\usepackage{listings}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=haskell,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+\theoremstyle{theorem} 
+   \newtheorem{theorem}{Theorem}[section]
+   \newtheorem{corollary}[theorem]{Corollary}
+   \newtheorem{lemma}[theorem]{Lemma}
+   \newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+   \newtheorem{definition}[theorem]{Definition}
+   \newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}    
+  \newtheorem{remark}[theorem]{Remark}
+
+
+\title{CPSC-354 Report}
+\author{Michael Masakayan  \\ Chapman University}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Short  summary of purpose and content.  
+\end{abstract}
+
+
+
+\section{Introduction}\label{intro}
+
+~\ref{intro} My name is Michael Masakayan, I'm a 4th year computer science major. I transferred from Pasadena City College in 2020. I am interested in cyber security and although I won't be able to get a minor in it I plan on getting a few certificates this year. I enjoy playing video games and like watching movies
+
+
+\section{Homework}\label{homework}
+
+This section will contain your solutions to homework. 
+
+\subsection{Week 1}
+ Assignment 1: GCD. The program figures out the Greatest Common Divisor for any given two numbers using Euclid’s algorithm. 
+\begin{enumerate}
+
+\item Firstly you want to put the program into your IDE and run g++ -o assignment1 assignment.cpp
+\item then type in ./assignment1.cpp
+\item Once you run the program you type in the first number then you hit enter then you type in the second number and hit enter. It will then show you the GCD of the two numbers.
+    \end{enumerate}
+      I chose to use c++ because I am familiar with the language and it was easier for me to write the program in it. This assignment was mainly for us to get used to using LaTeX
+\begin{lstlisting}
+#include <iostream>
+using namespace std;
+int gcd(int n, int m) {
+   if (m == 0)
+   {
+       return n;
+   }
+  
+   else if(n>m)
+   {
+      gcd(m,n-m);
+   }
+   else if(n<m)
+   {
+      gcd(n,m-n);
+   }
+   return gcd(m, n % m);
+}
+int main() {
+    int n,m;
+    cout<<"type the number for the first argument of the GCD, then hit enter"<<'\n';
+    cin>>n;
+    cout<<"type the number for the first argument of the GCD,then hit enter"<<'\n';
+    cin>>m;
+   cout<<"GCD of "<< n <<" and "<< m <<" is "<< gcd(n, m);
+   return 0;
+}
+\end{lstlisting}
+\subsection{Week 2}
+ Assignment 2: In this assignment we were tasked with creating a few recursiver functions in haskel that is  
+  
+\begin{enumerate}
+
+\item select_evens
+\item select_odds
+\item member
+\item append
+\item revert
+\item less_equal
+
+Select evens will take a list and return a another list with only the even elements of the list in the argument. select_odds is meant to do what select even does but for the odds items in the list. Member, is meant to check a list if it has the given argument in it returning true if it contains it and false if it does not. The append method will combine two lists into one and return the combine list. Revert is meant to change the order of a list so that it will be backwards. And finaly less_equal is meant to check if a list is less than or equal to another list. 
+\begin{enumerate}
+
+\item Firstly you want to put the program into your IDE and run ghci
+\item then type in  :load assignment2.hs
+\item you can type the following  and they should give the results
+   \begin{enumerate}
+
+\item select_evens ["e","f","g","h","i"]--result ["f","h"]
+\item 
+\item select_odds ["e","f","g","h","i"]--result["f","h","i"]
+\item 
+\item member 3 [2,4,3]--result true member 3 [2,4,2]--result false
+\item 
+append [2,1] [3,1,2]
+--result [2,3,1,1,2]
+\item revert [5,6,7,8]
+--result [8,7,6,5]
+\item less_equal[1][2]
+--result true
+\item less_equal[3][2]
+--result false
+
+
+
+
+
+
+
+I mainly had issue with less equal. I could not find the syntax for how to recursively go through more than one element lists. Most of them used the same type of recursion.
+
+
+\begin{lstlisting}
+{-let ezample_eveny =  ["a","b","c","d","e"] -}
+{-yelect_eveny (z:zy) n =  z !!n if z !! n/2 == % 0 then b:a!! n 
+-}
+select_evens::  [a] -> [a]
+select_evens [] = []
+select_evens [x] = []
+select_evens (x1:x2:xy) = x2:select_evens xy
+-- selects all the odd elements in a list
+select_odds ::  [a] -> [a]
+select_odds [] = []
+select_odds [x] = [x]
+select_odds (x1:x2:xy) = x2:select_odds xy
+-- member takes an int and a list and checks if the int is in the list
+
+member:: Eq a=> a-> [a] -> Bool
+member _ [] = False
+member x (z:zs)=  (x `elem` zs) == True
+
+
+
+-- combines two lists into one list
+append ::  [a] -> [a] -> [a]
+append [] xy = xy
+append (z:zy) xy = z:append xy zy
+-- reverses the order of a list
+revert :: [a] -> [a]
+revert xs = rev [] xs where
+  rev :: [a] -> [a] -> [a] 
+  rev acc    []  =       acc
+  rev acc (x:xs) = rev (x:acc) xs
+--compares the values of the lists
+less_equal:: Ord a=> [a] -> [a] -> Bool
+less_equal  [][] = True
+less_equal [x][b] = (x>=b)
+-- less_equal (x:xs) (b:bz) = x<b:less_equal xs bz
+
+
+
+main::IO ()
+main = print(append [1,2] [3,4,5])
+-- print(less_equal [][])
+-- print(select_odds ["a","b","c","d","e"])
+-- print (revert [1,2,3])
+\end{lstlisting}
+\subsection{Week 3}
+For this week we went over Parsing and Context-Free Grammars.
+Question 1:
+write out the derivation trees (also called parse trees or concrete syntax trees) for the following strings:
+\begin{enumerate}
+
+\item 2+1
+\item 1+2*3
+\item 1+(2*3)
+\item (1+2)*3
+\item 1+2*3+4*5+6
+
+    \end{enumerate}
+    Question 1.1:
+    Is the abstract syntax tree of 1+2+3 identical to the one of (1+2)+3 or the one of 1+(2+3)?
+    Answer: No the abstract syntax tree is not identical to either of them you need to go through to get the paranthesis this is not completely the case when dealing with the derivation tree though.
+ \begin{figure}[htp]
+    \centering
+    \includegraphics[width=4cm]{1st}
+    \caption{ 2+1  derivation tree}
+    \label{fig: 2+1}
+\end{figure}
+ \begin{figure}[htp]
+    \centering
+    \includegraphics[width=4cm]{2nd}
+    \caption{1+2*3  derivation tree}
+    \label{fig:1+2*3}
+\end{figure}
+ \begin{figure}[htp]
+    \centering
+    \includegraphics[width=4cm]{2nd}
+    \caption{1+(2*3)  derivation tree}
+    \label{fig:1+(2*3)}
+\end{figure}
+ \begin{figure}[htp]
+    \centering
+    \includegraphics[width=4cm]{4th (2)}
+    \caption{(1+2)*3  derivation tree}
+    \label{fig:(1+2)*3}
+\end{figure}
+ \begin{figure}[htp]
+    \centering
+    \includegraphics[width=4cm]{5}
+    \caption{1+2*3+4*5+6  derivation tree}
+    \label{fig:1+2*3+4*5+6}
+\end{figure}
+
+
+
+ \begin{figure}[htp]
+    \centering
+    \includegraphics[width=4cm]{1}
+    \caption{ 2+1  abstract syntax tree}
+    \label{fig: 2+1}
+\end{figure}
+ \begin{figure}[htp]
+    \centering
+    \includegraphics[width=4cm]{2}
+    \caption{1+2*3  abstract syntax tree}
+    \label{fig:1+2*3}
+\end{figure}
+ \begin{figure}[htp]
+    \centering
+    \includegraphics[width=4cm]{3}
+    \caption{1+(2*3)  abstract syntax tree}
+    \label{fig:1+(2*3)}
+\end{figure}
+ \begin{figure}[htp]
+    \centering
+    \includegraphics[width=4cm]{4}
+    \caption{(1+2)*3 abstract syntax tree}
+    \label{fig:(1+2)*3}
+\end{figure}
+ \begin{figure}[htp]
+    \centering
+    \includegraphics[width=4cm]{5th}
+    \caption{1+2*3+4*5+6  abstract syntax tree}
+    \label{fig:1+2*3+4*5+6}
+\end{figure}
+Question 1.2:
+    write out the abstract syntax trees for the following strings:
+
+
+\section{Conclusions}\label{conclusions}
+
+(approx 400 words)
+
+In the conclusion, I want a critical reflection on the content of the course. Step back from the technical details. How does the course fit into the wider world of programming languages and software engineering?
+
+\begin{thebibliography}{99}
+\bibitem[PL]{PL} \href{https://github.com/alexhkurz/programming-languages-2022/blob/main/README.md}{Programming Languages 2022}, Chapman University, 2022.
+\end{thebibliography}
+
+\end{document}

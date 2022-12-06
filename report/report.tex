@@ -1,7 +1,14 @@
 \documentclass{article}
 \usepackage{graphicx}
+\usepackage{listings}
+\usepackage{color}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
 \usepackage{amsthm}
 \usepackage{amsfonts}
+\documentclass{article}
+\usepackage{multirow}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{fullpage}
@@ -37,6 +44,7 @@
   breakatwhitespace=true,
   tabsize=3
 }
+
 
 \theoremstyle{theorem} 
    \newtheorem{theorem}{Theorem}[section]
@@ -76,11 +84,11 @@ I decided to change the outlook of my project and pivot to study another program
     \begin{itemize}
 
 \item Going over the history of the language. Mainly who made it, why it was made, and how it was made. ( I think that I will be able to finish this section within the next 2 weeks) 
-\item S short introduction into how to get started in the language. I would like to go over a short snippet of code that maybe I have made and how the language interprets different data types and structures. ( I think that I could finish this within 3 or 4 weeks seeing as I most likely need to be comfortable with the language to do this section)
+\item Short introduction into how to get started in the language. I would like to go over a short snippet of code that maybe I have made and how the language interprets different data types and structures. ( I think that I could finish this within 3 or 4 weeks seeing as I most likely need to be comfortable with the language to do this section)
 \item It’s pros and cons, and it's real world application. I would like to go over the trade offs of the language and why people are starting to use this over others. ( I think I can complete this with the first mile stone within the first 2/3 weeks.)
 \item I would also like to talk about how the language is connected to other languages and my experience with it. This is not as important to me as the other mile stones. I think it would be good to round it off and talk about how it connects in actual workflows and working with other languages. ( I should be able to complete this within 2 weeks but I do not this is as important of a section and I think I should come back to it if I have time.)
 \end{itemize}
-If there are any suggestions on topics I should cover or another language that might be good to do the project in please let me know
+If there are any suggestions on topics I should cover or another language that might be good to do the project in please let me know.
 \subsection{Project deliverable 1 }
     \begin{itemize}
 
@@ -89,6 +97,62 @@ If there are any suggestions on topics I should cover or another language that m
 
 \end{itemize}
 
+\subsection{Project deliverable 2 Introduction on the language}
+\medskip 
+Firstly you will want to go to the official website to install rust. It should be  at the time of writing this.\cite{IR} After you download rust you should run “rustc” and see if the help prompt comes up. The extension for the language is .rs so you will be able to make a file “main.rs”. 
+
+It is important to note Cargo and its relation to rust (cargo). It is pip for Python or gem for Ruby in that it is both the package manager and build system for Rust. Cargo is called when you run “rustc” and comes pre-installed when you download Rust.
+
+The first program I will be going over is a basic “hello world”. This is the code for the “hello world”. As you can see in the code the function is denoted by fn.
+
+\begin{lstlisting}
+fn main() {
+    println!("hello World")
+}
+\end{lstlisting}
+
+\subsubsection{Types}
+
+Very much like other programming languages rust has the basic types. \cite{PDT} 
+ \\ 
+  \\ 
+\begin{center}
+\begin{tabular}{ |p{5cm}||p{5cm}|p{5cm}|p{5cm}|  }
+ \hline
+ \multicolumn{3}{|c|}{Basic Types} \\
+ \hline
+ Name & Description & Example\\
+ \hline
+ Char   &  a single Unicode value that takes up 4 bytes
+    &'a' 'h' \\
+     \hline
+ Boolean &  Value that decides truth, two possible values & True or false  \\
+  \hline
+ Integer &There are multiple integer data types in Rust. But the default integer type in Rust is i32
+ & 1,2,-1,100\\
+  \hline
+ Floating Point    &There are two types for floating-point numbers f32(32 bit) and f64(64 bit) & 2.0,3.0\\
+ \hline
+\end{tabular}
+\end{center}
+\subsubsection{Compoound Types}
+There are also two compound types. 
+ \\ 
+  \\ 
+\begin{center}
+\begin{tabular}{ |p{5cm}||p{5cm}|p{5cm}|p{5cm}|  }
+ \hline
+ \multicolumn{3}{|c|}{Compund Types} \\
+ \hline
+ Name & Description & Example\\
+ \hline
+ Tuples   & Fixed data types that can contain multiple types within it. In this example there is a char, int, and float within this tuple.
+    &('a', 1, 2.4) \\
+    \hline
+ Arrays &  As said before arrays can only use one specific data type within them unlike tuples. Arrays within Rust are different from that in other languages. For example they have fixed lengths. & let a = [1, 2, 3, 4, 5]; \\
+  \hline
+\end{tabular}
+\end{center}
 \section{Conclusions}\label{conclusions}
 
 (approx 400 words)
@@ -98,14 +162,14 @@ In the conclusion, I want a critical reflection on the content of the course. St
 
 \begin{thebibliography}{99}
 \bibitem[PL]{PL} \href{https://github.com/alexhkurz/programming-languages-2022/blob/main/README.md}{Programming Languages 2022}, Chapman University, 2022.
-\bibitem {blog.rust}
+\bibitem [AR] {blog.rust}
 “Announcing Rust 1.0: Rust Blog.” \href{https://blog.rust-lang.org/2015/05/15/Rust-1.0.html}{The Rust Programming Language Blog},
+\bibitem [IR]{IR} “Install Rust.”\href{https://github.com/alexhkurz/programming-languages-2022/blob/main/README.md}{ Rust Programming Language }
 
-\bibitem {Avram}
-Avram, Abel. \href{https://www.infoq.com/news/2012/08/Interview-Rust/} {“Interview on Rust, a Systems Programming Language Developed by Mozilla.” InfoQ, InfoQ, 3 Aug. 2012}
-
-\bibitem {Rust.lang}
+\bibitem [RL]{Rust.lang}
 Rust-Lang.\href{https://github.com/rust-lang/rust/blob/master/RELEASES.md}  {“Rust/Releases.md at Master · Rust-Lang/Rust.” GitHub, 4 Nov. 2022.} 
+\bibitem [PDT]{learning Rust}
+Rust-Lang.\href{https://learning-rust.github.io/docs/primitive-data-types/}  {“https://learning-rust.github.io/docs/primitive-data-types/".} 
 \end{thebibliography}
 
 \end{document}

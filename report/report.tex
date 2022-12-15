@@ -110,8 +110,17 @@ fn main() {
     println!("hello World")
 }
 \end{lstlisting}
+\subsubsection{Ownership}\
+ In Rust, memory management is accomplished through a system of ownership and a set of rules that are enforced by the compiler. This is different from languages with garbage collection, where memory is automatically managed, or languages where the programmer must explicitly allocate and free memory. Ownership in Rust ensures that memory is used safely and efficiently, without introducing runtime overhead. If a Rust program violates the ownership rules, the compiler will not run. When it comes to ownership in rust there are three main rules to keep in mind.
+\begin{itemize}
+\item In Rust, every value has a single owner.
+\item Only one owner can exist for a given value at a time.
+\item When the owner goes out of scope, the value will be dropped.
 
-This is a concept of ownership with coding examples. In this example I will be showing how an immutable reference is borrowed. We take &Vec<i32> instead of just Vec<i32> and pass in &v1 and &v2. This is to call the type by reference rather than it owning the recourse it borrows the ownership. Since it is borrowing something it does not deallocate the recourse when it is out of the scope. Meaning after you call the function foo() we can still use the original bindings of it. But references are immutable and the vectors that exist within foo() cannot be changed when we borrow it from outside of the scope. Here is the code example. 
+\end{itemize}
+
+\subsubsection{Borrowing}\
+ In this example I will be showing how an immutable reference is borrowed. We take &Vec<i32> instead of just Vec<i32> and pass in &v1 and &v2. This is to call the type by reference rather than it owning the recourse it borrows the ownership. Since it is borrowing something it does not deallocate the recourse when it is out of the scope. Meaning after you call the function foo() we can still use the original bindings of it. But references are immutable and the vectors that exist within foo() cannot be changed when we borrow it from outside of the scope. Here is the code example. 
 
 \begin{lstlisting}
 fn main() {
@@ -136,6 +145,7 @@ fn main() {
 }
 \end{lstlisting}
 
+\subsubsection{Ownership}\
 
 
 \subsubsection{Types}
@@ -181,6 +191,21 @@ There are also two compound types.
 \end{tabular}
 \end{center}
 \subsection{Project deliverable 3 }
+\subsubsection{Strengths and Weaknesses}\
+When it comes to choosing a programming language, Rust has many advantages to consider. It has been well documented and discussed extensively in the programming community, making it a great choice for those looking to learn and work with a popular and widely supported language. Additionally, Rust offers a number of strengths that make it a strong choice for a wide range of applications.
+\begin{itemize}
+\item Rust projects don’t need a garbage collector constantly running. It allows the user to choose whether they want to store data on the steak or on the heap, then it determines when to clean up the memory. This allows for a safe and fast alternative to to replace performance critically code with that of Rust. This goes into the concept of ownership management.
+\item The main appeal is that it is considered to be a memory safe programming language which offers low level performance with high level simplicity. Ownership and borrowing are one of the main reasons why people choose to use Rust.
+\item Rust is a popular programming language, in part because of its official package manager, Cargo. Cargo offers a number of benefits over other package managers, including the ability to avoid recompiling code every time a change is made. This is a major advantage for Rust users, as it can save significant time and effort compared to languages like C++ that require recompilation. 
+\end{itemize}
+Along with its many benefits, there are also some drawbacks to using Rust as a programming language. These drawbacks may vary depending on the specific situation and context, but they can include challenges that may make it less attractive compared to other languages. It's important to carefully consider both the advantages and disadvantages of using Rust before making a decision on using the language.
+\begin{itemize}
+\item The steep and long learning curve of Rust can be made even more difficult by the fact that the community of Rust programmers is relatively small and the language itself is fairly new. This means that there may be fewer resources and people to turn to for help and support when learning Rust. 
+\item Additionally, the complexity of Rust means that it can be difficult for even experienced programmers to fully utilize its capabilities without a significant investment of time and effort. It might not be fully useful for what you are trying to do. It has been noted that most new programmers don’t fully understand and appreciate what Rust has to offer As a result, many people may find that the benefits of using Rust are not worth the difficulty of learning and working with the language. If you aren’t using Rust to the fullest of it’s capabilities there are many other easier to learn languages that would be more useful.
+\item One of the key features of Rust is its powerful and sophisticated compiler, which is responsible for managing many aspects of the language, including generic types, ownership, and the expansion of macros. However, this powerful compiler comes with a trade-off: it can make Rust's compilation slower than other languages, which can be frustrating for some users. Additionally, the performance of Rust can vary depending on the specific machine it is running on, which means that some machines may be better suited to running Rust than others. This can be an important factor to consider when deciding whether to use Rust, especially in situations where speed is a critical concern, such as in development cycles. Overall, the unique features of Rust's compiler can provide many benefits, but they also come with some potential drawbacks that users should be aware of.
+\end{itemize}
+
+\subsubsection{Real World Applications}
 Rust is a programming language that is gaining popularity in the industry due to its focus on safety, performance, and concurrency. It is commonly used for building high-performance systems and is often a good choice for applications that require low-level control, such as operating systems, game engines, and embedded systems. Additionally, Rust has a strong ecosystem of libraries and tools, making it easy to develop and maintain complex projects. Many companies, such as Figma and Dropbox, have adopted Rust in their tech, and the language has received high praise from developers. Here are a few examples of how Rust has been used:
 \begin{itemize}
 \item Dropbox uses Rust for its file synchronization engine to improve performance and handle complex codebases

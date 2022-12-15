@@ -111,6 +111,33 @@ fn main() {
 }
 \end{lstlisting}
 
+This is a concept of ownership with coding examples. In this example I will be showing how an immutable reference is borrowed. We take &Vec<i32> instead of just Vec<i32> and pass in &v1 and &v2. This is to call the type by reference rather than it owning the recourse it borrows the ownership. Since it is borrowing something it does not deallocate the recourse when it is out of the scope. Meaning after you call the function foo() we can still use the original bindings of it. But references are immutable and the vectors that exist within foo() cannot be changed when we borrow it from outside of the scope. Here is the code example. 
+
+\begin{lstlisting}
+fn main() {
+    // the point here is that an immutable reference is borrowed.
+    fn sum_vec(v: &Vec<i32>) -> i32 {
+        v.iter().fold(0, |a, &b| a + b)
+    }
+    // Borrow two vectors and sum them.
+    // This kind of borrowing does not allow mutation through the borrowed reference.
+    fn foo(v1: &Vec<i32>, v2: &Vec<i32>) -> i32 {
+        // we do stuff with `v1` and `v2`.
+        let s1 = sum_vec(v1);
+        let s2 = sum_vec(v2);
+        // this will return the answer
+        s1 + s2
+    }
+    let v2 = vec![4, 5, 6];
+    let v1 = vec![1, 2, 3];
+    
+    let answer = foo(&v1, &v2);
+    println!("{}", answer);
+}
+\end{lstlisting}
+
+
+
 \subsubsection{Types}
 
 Very much like other programming languages rust has the basic types. \cite{PDT} 
@@ -153,6 +180,19 @@ There are also two compound types.
   \hline
 \end{tabular}
 \end{center}
+\subsection{Project deliverable 3 }
+Rust is a programming language that is gaining popularity in the industry due to its focus on safety, performance, and concurrency. It is commonly used for building high-performance systems and is often a good choice for applications that require low-level control, such as operating systems, game engines, and embedded systems. Additionally, Rust has a strong ecosystem of libraries and tools, making it easy to develop and maintain complex projects. Many companies, such as Figma and Dropbox, have adopted Rust in their tech, and the language has received high praise from developers. Here are a few examples of how Rust has been used:
+\begin{itemize}
+\item Dropbox uses Rust for its file synchronization engine to improve performance and handle complex codebases
+\item Coursera uses Rust for its programming assignments feature because it is more secure than C
+\item Figma uses Rust to improve performance of its multiplayer syncing engine
+\item NPM uses Rust for its main service to improve performance and scalability
+\item Microsoft is experimenting with integrating Rust into its C/C++ codebases for improved memory safety.
+\item Facebook used Rust to rewrite the source control backend. Rust was also adopted for its safety
+\item Discord used Rust for some of their codebase on server-side and for client side. They said that rust had lots of advantages for their engineering team. Stating that its borrower and checking system make it easy to refactor code
+\end{itemize}
+
+
 \section{Conclusions}\label{conclusions}
 
 (approx 400 words)
